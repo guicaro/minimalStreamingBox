@@ -87,11 +87,17 @@ Vagrant.configure("2") do |config|
      sudo docker-compose --version
      rm docker-ce_17.03.1~ce-0~ubuntu-trusty_amd64.deb
 
+     echo "**** Adding the docker group"
+     sudo groupadd docker
+     sudo gpasswd -a ${USER} docker
+
      echo "**** Cloninig projects from github"
      git clone https://github.com/guicaro/docker-hadoop-spark-workbench.git
      git clone https://github.com/wurstmeister/kafka-docker.git
 
      echo "**** Creating the hadoop network and adding Kafka config"
+     cp /vagrant/st* ~
+     chmod 755 st*
      sudo  docker network create hadoop
      export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
      export KAFKA_ADVERTISED_HOST_NAME=localhost
@@ -99,6 +105,6 @@ Vagrant.configure("2") do |config|
      echo "**** Run following commands to continue installation inside box"
      echo ""
      echo "$ vagrant ssh"
-     echo "$ ./vagrant/start_all.sh"
+     echo "$ ./start_all.sh"
   SHELL
 end
