@@ -72,10 +72,11 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-     echo "**** Installing prerequisites"
+     echo "**** Installing tools"
      apt-get update
      apt-get -y install wget 
      apt-get -y install git
+     apt-get -y install tmux
      
      echo "**** Installing docker engine and docker-compose"
      wget --progress=bar:force https://download.docker.com/linux/ubuntu/dists/trusty/pool/stable/amd64/docker-ce_17.03.1~ce-0~ubuntu-trusty_amd64.deb
