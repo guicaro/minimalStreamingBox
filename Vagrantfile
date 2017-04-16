@@ -27,6 +27,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.network "forwarded_port", guest: 7077, host: 7077
   config.vm.network "forwarded_port", guest: 9000, host: 9000
+  config.vm.network "forwarded_port", guest: 9092, host: 9092
+  config.vm.network "forwarded_port", guest: 2181, host: 2181
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -88,8 +90,10 @@ Vagrant.configure("2") do |config|
      git clone https://github.com/guicaro/docker-hadoop-spark-workbench.git
      git clone https://github.com/wurstmeister/kafka-docker.git
 
-     echo "**** Creating the hadoop network"
+     echo "**** Creating the hadoop network and adding Kafka config"
      sudo  docker network create hadoop
+     export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+     export KAFKA_ADVERTISED_HOST_NAME=localhost
 
      echo "**** Run following commands to continue installation inside box"
      echo ""
