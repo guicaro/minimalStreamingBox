@@ -70,7 +70,13 @@ The kafka-docker project has included a script to run kafka commands inside a co
 
 # HDFS commands
 
-TODO
+To get access to the HDFS file system shell we can just use a datanode and interact using the [HDFS file system commands](https://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) . Keep in mind that you can also [browse the file system](http://localhost:50070/explorer.html) with the browser
+
+`docker exec -ti datanode bash`  
+
+### Inside the datanode container
+
+`hadoop fs -mkdir /myDir`  
 
 # Connecting intelliJ
 
