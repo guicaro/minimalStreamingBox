@@ -88,7 +88,7 @@ Vagrant.configure("2") do |config|
      rm docker-ce_17.03.1~ce-0~ubuntu-trusty_amd64.deb
 
      echo "**** Adding the docker group"
-     sudo gpasswd -a ${USER} docker
+     sudo gpasswd -a vagrant docker
 
      echo "**** Cloninig projects from github"
      git clone https://github.com/guicaro/docker-hadoop-spark-workbench.git
