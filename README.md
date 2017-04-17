@@ -9,7 +9,7 @@ The essentials to testing a Spark Streaming application with Kafka. What's in th
 
 Made from following two projects
 
-* [HDFS/Spark Workbench](https://github.com/guicaro/docker-hadoop-spark-workbench)
+* [HDFS/Spark Workbench](https://github.com/guicaro/docker-hadoop-spark-workbench) (Please note this a fork w/ some additional changes from original)
 * [kafka-docker](https://github.com/wurstmeister/kafka-docker)
 
 # Prerequisites
