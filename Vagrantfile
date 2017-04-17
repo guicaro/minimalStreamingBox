@@ -97,13 +97,10 @@ Vagrant.configure("2") do |config|
      echo "**** Creating the hadoop network and adding Kafka config"
      sudo  docker network create hadoop
 
-     echo "**** Run following commands to continue installation inside box"
+     echo "**** Box is not ready yet, continue instructions from:"
      echo ""
-     echo "$ vagrant ssh"
-     echo "$ dos2unix /vagrant/start-all.sh"
-     echo "$ dos2unix /vagrant/stop-all.sh"
-     echo "$ cp /vagrant/st* ~"
-     echo "$ chmod 755 st*"
-     echo "$ ./start_all.sh"
+     echo " README.md"
+     echo " or"
+     echo " https://github.com/guicaro/minimalStreamingBox"
   SHELL
 end
