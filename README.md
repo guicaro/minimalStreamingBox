@@ -57,13 +57,13 @@ The kafka-docker project has included a script to run kafka commands inside a co
 ### Inside the Kafka container
 
 `# Create a topic`  
-`kafka-topics.sh --create --topic <topic_here> --partitions 4 --zookeeper $ZK --replication-factor 1`
+`kafka-topics.sh --create --topic <topic_here> --partitions 4 --zookeeper $ZK --replication-factor 1`  
 
-`# Produce messages`  
-`kafka-console-producer.sh --broker-list $HOST_IP:9092 --topic <topic_here>`  
+`# Produce messages - NOTE: we don't use 9092, instead we use 32769 (from Docker), you might have another port`  
+`kafka-console-producer.sh --broker-list $HOST_IP:32769 --topic <topic_here>`  
 
-`# Consume messages`  
-`kafka-console-consumer.sh --new-consumer --bootstrap-server $HOST_IP:9092 --topic <topic_here>`  
+`# Consume messages - NOTE: we don't use 9092, instead we use 32769 (from Docker), you might have another port`  
+`kafka-console-consumer.sh --new-consumer --bootstrap-server $HOST_IP:32769 --topic <topic_here>`  
 
 `# Access Zookeeper`  
 `zookeeper-shell.sh $ZK`  
