@@ -30,13 +30,16 @@ After installing Vagrant and Virtual box just start the vagrant box and start th
 `dos2unix /vagrant/stop-all.sh`  
 `cp /vagrant/st* ~`  
 `chmod 755 st*`  
-`./start_all.sh`  
 
 ### Kafka config
 
 1. Get the IP for your Ubuntu box (in the form 10.X.X.X): `ifconfig | grep 10`
 2. Modify `KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100` in `~/kafka-docker/docker-compose.yml` with IP from step 1
 3. If you are having memory issues, you might also want to add `KAFKA_HEAP_OPTS="-Xmx512M -Xms128M"`
+
+### Run :)
+
+`./start_all.sh`  
 
 You should end up with 6 containers running.
 
