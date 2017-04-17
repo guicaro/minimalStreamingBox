@@ -96,8 +96,6 @@ Vagrant.configure("2") do |config|
 
      echo "**** Creating the hadoop network and adding Kafka config"
      sudo  docker network create hadoop
-     export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
-     export KAFKA_ADVERTISED_HOST_NAME=localhost
 
      echo "**** Run following commands to continue installation inside box"
      echo ""
