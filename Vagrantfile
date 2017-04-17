@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
      #   vb.gui = true
      #
          # Customize the amount of memory on the VM:
-         vb.memory = "2048"
+         vb.memory = "3072"
   end
 
   #
@@ -76,7 +76,7 @@ Vagrant.configure("2") do |config|
      apt-get update
      apt-get -y install wget 
      apt-get -y install git
-     apt-get -y install tmux
+     apt-get -y install dos2unix
      
      echo "**** Installing docker engine and docker-compose"
      wget --progress=bar:force https://download.docker.com/linux/ubuntu/dists/trusty/pool/stable/amd64/docker-ce_17.03.1~ce-0~ubuntu-trusty_amd64.deb
@@ -88,7 +88,6 @@ Vagrant.configure("2") do |config|
      rm docker-ce_17.03.1~ce-0~ubuntu-trusty_amd64.deb
 
      echo "**** Adding the docker group"
-     sudo groupadd docker
      sudo gpasswd -a ${USER} docker
 
      echo "**** Cloninig projects from github"
@@ -96,8 +95,6 @@ Vagrant.configure("2") do |config|
      git clone https://github.com/wurstmeister/kafka-docker.git
 
      echo "**** Creating the hadoop network and adding Kafka config"
-     cp /vagrant/st* ~
-     chmod 755 st*
      sudo  docker network create hadoop
      export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
      export KAFKA_ADVERTISED_HOST_NAME=localhost
@@ -105,6 +102,10 @@ Vagrant.configure("2") do |config|
      echo "**** Run following commands to continue installation inside box"
      echo ""
      echo "$ vagrant ssh"
+     echo "$ dos2unix /vagrant/start-all.sh"
+     echo "$ dos2unix /vagrant/stop-all.sh"
+     echo "$ cp /vagrant/st* ~"
+     echo "$ chmod 755 st*"
      echo "$ ./start_all.sh"
   SHELL
 end
